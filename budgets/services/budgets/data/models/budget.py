@@ -9,7 +9,7 @@ Base = declarative_base()
 metadata = Base.metadata
 
 class Budget(Base):
-    __tablename__ = "budget"
+    __tablename__ = "budgets.budget"
 
     id: Mapped[int] =  mapped_column(primary_key=True)
     month: Mapped[int] = mapped_column(nullable=False)#will eventually be enum for month
