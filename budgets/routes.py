@@ -1,5 +1,5 @@
 from flask import Blueprint
-from .services.GetBudget import GetBudget
+from budgets.services.budgets.GetBudget import GetBudget
 
 bp = Blueprint('budgets', __name__)
 

@@ -16,6 +16,15 @@ This project has 2 goals right now.
 
 
 ## Notes:
+Run flask app with `python -m flask run`
+
 Unit tests are currently run with `python -m unittest discover tests`
 
+Create alembic migrations with `alembic revision -m "<name_of_migration>"`
+
 Plan to document this, but followed this youtube vid, to set up postgres, SqlAlchemy, and alembic: https://www.youtube.com/watch?v=i9RX03zFDHU&t=1424s
+
+
+## TODO:
+- finish up initial db layer implementation.
+- organize a bit better for future development
