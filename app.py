@@ -1,8 +1,8 @@
 from flask import Flask
-from budgets.routes import bp
+from services.budgets.web.routes import budgetsBp
 app = Flask(__name__)
 
-app.register_blueprint(bp)
+app.register_blueprint(budgetsBp)
 
 @app.route("/")
 def home():

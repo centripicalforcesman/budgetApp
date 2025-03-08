@@ -5,7 +5,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
-from budgets.services.budgets.data.database import Base  # Import shared Base
+from services.budgets.data.database import Base
 
 class BudgetGroup(Base):
     __tablename__ = "budgetGroup"

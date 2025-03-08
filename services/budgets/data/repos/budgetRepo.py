@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from budgets.services.budgets.data.models.budget import Budget
-from budgets.services.budgets.mappers.budgetMappers import budget_data_to_budget_domain
+from services.budgets.data.models.budget import Budget
+from services.budgets.mappers.budgetMappers import budget_data_to_budget_domain
 
 class budgetRepo:
     def __init__(self, session: Session, identity_map=None):

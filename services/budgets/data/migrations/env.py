@@ -1,12 +1,22 @@
+
+import sys
+import os
+
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+APP_DIR = os.path.join(BASE_DIR, '../app')
+sys.path.append(APP_DIR)
+
 from logging.config import fileConfig
+
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
-from budgets.services.budgets.data.models.budget import Budget
-from budgets.services.budgets.data.models.budgetGroup import BudgetGroup
-from budgets.services.budgets.data.database import Base  # Import shared Base
+from services.budgets.data.models.budget import Budget
+from services.budgets.data.models.budgetGroup import BudgetGroup
+from services.budgets.data.models.budgetItem import BudgetItem
+from services.budgets.data.database import Base
     
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
