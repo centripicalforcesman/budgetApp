@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import List
 from decimal import Decimal
-from sqlalchemy import Column, DateTime, String, Integer, func
+from sqlalchemy import Column, DateTime, String, Integer, func, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
@@ -15,4 +15,6 @@ class BudgetItem(Base):
     name: Mapped[str] = mapped_column(nullable=False)
     allocatedAmount: Mapped[Decimal] = mapped_column(default=0.00)
     saving: Mapped[bool] = mapped_column(default=False)
+    budgetGroupId: Mapped[int] = mapped_column(Integer, ForeignKey("budgetGroup.id"))
+    budgetGroup: Mapped["BudgetGroup"] = relationship("BudgetGroup", back_populates="budgetItems")
 

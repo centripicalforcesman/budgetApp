@@ -2,8 +2,11 @@
 import sys
 import os
 
+
+#The following three lines append the root directory of this project to system path to make 
+# all modules searchable. 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-APP_DIR = os.path.join(BASE_DIR, '../app')
+APP_DIR = os.path.join(BASE_DIR, '../../../..')
 sys.path.append(APP_DIR)
 
 from logging.config import fileConfig

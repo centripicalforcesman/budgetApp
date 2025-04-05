@@ -14,4 +14,6 @@ class BudgetGroup(Base):
     name: Mapped[str] = mapped_column(String(50), nullable=False)
     budgetId: Mapped[int] = mapped_column(Integer, ForeignKey("budget.id"))
     budget: Mapped["Budget"] = relationship("Budget", back_populates="budgetGroups")
+    budgetItems: Mapped[List["BudgetItem"]] = relationship("BudgetItem", back_populates="budgetGroup")
+
 
