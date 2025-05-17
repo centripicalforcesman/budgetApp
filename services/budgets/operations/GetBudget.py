@@ -13,5 +13,4 @@ class GetBudget:
     def Execute(self, id):
         with Session(engine) as session:
             repo = budgetRepo(session, [])
-            budget = repo.get_by_id(id)
-            return repr(budget)
+            return repo.get_by_id(id).serialize()

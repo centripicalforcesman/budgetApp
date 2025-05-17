@@ -7,3 +7,8 @@ class Budget:
 
     def __repr__(self):
         return f"id: {self.id}, month: {self.month}, year: {self.year}, budgetGroups: {self.budgetGroups}"
+    
+    def serialize(self):
+        return {"id": self.id,
+                "month": self.month,
+                "year": self.year}
