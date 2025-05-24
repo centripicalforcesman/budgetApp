@@ -11,4 +11,5 @@ class Budget:
     def serialize(self):
         return {"id": self.id,
                 "month": self.month,
-                "year": self.year}
+                "year": self.year,
+                "budgetGroups" : self.budgetGroups}

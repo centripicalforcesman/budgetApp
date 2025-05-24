@@ -11,10 +11,12 @@ export class BudgetService {
 
   constructor(private http: HttpClient) {}
 
-  getBudgets() {
-    this.http.get<string>(this.apiUrl).subscribe(budgets => { 
-      console.log(budgets)
-    });
+  getBudgets(): Observable<Budget> {
+    // this.http.get<string>(this.apiUrl).subscribe(budgets => { 
+    //   console.log(budgets)
+    // });
+
+    return this.http.get<Budget>(this.apiUrl);
   }
 
   addBudget(budget: Budget): Observable<Budget> {

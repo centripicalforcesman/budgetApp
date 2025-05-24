@@ -8,3 +8,9 @@ class BudgetItem:
 
     def __repr__(self):
         return f"id: {self.id}, name: {self.name}, allocatedAmount: {self.allocatedAmount}, saving: {self.saving}"
+    
+    def serialize(self):
+        return {"id": self.id,
+                "name": self.name,
+                "allocatedAmount": self.allocatedAmount,
+                "saving": self.saving}
