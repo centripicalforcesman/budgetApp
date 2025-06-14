@@ -1,1 +1,33 @@
+@import "primeicons/primeicons.css";
+
 /* You can add global styles to this file, and also import other style files */
+html {
+  background-color: rgb(245, 247, 248); //TODO: make variable
+  font-family:canada-type-gibson,proxima-nova,sans-serif;
+  font-size:1.125rem;
+  line-height:1.625rem
+}
+
+
+//move to styles with budget gorup
+.budget-group-card-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+
+}
+
+.budget-group-card {
+    width: 50%;
+    margin-bottom: 1.5rem;
+}
+
+.budget-group-card-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.budget-group-card-header {
+    font-weight: 400 !important;
+}

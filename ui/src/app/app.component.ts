@@ -1,39 +1,32 @@
-// import { Component } from '@angular/core';
-// import { RouterOutlet } from '@angular/router';
-
-// @Component({
-//   selector: 'app-root',
-//   imports: [RouterOutlet],
-//   templateUrl: './app.component.html',
-//   styleUrl: './app.component.scss'
-// })
-// export class AppComponent {
-//   title = 'ui';
-// }
+//TODO: move all of this code to its own component. and out of base app.component
 
 import { Component, OnInit } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { CardModule } from 'primeng/card';
+import { AccordionModule } from 'primeng/accordion';
 import { BudgetService } from './features/budgets/services/budget.service'
 import { Budget } from './shared/models/budget';
+import { CommonModule } from '@angular/common';
+import { BudgetGroup } from './shared/models/budgetGroup';
 
 @Component({
-    selector: 'button-demo',
+    selector: 'budget-group',
     templateUrl: './app.component.html',
     standalone: true,
-    imports: [ButtonModule]
+    imports: [TableModule, CommonModule, CardModule, ButtonModule, AccordionModule],
 })
 export class AppComponent {
 
-    budgets!: Budget[]
-    constructor(private budgetService: BudgetService) {}
+    budgetGroups!: BudgetGroup[];
+
+    constructor(private budgetService: BudgetService) {
+    }
 
     ngOnInit() {
-        this.productService.getProductsMini().then((data) => {
-            this.products = data;
-        });
-        this.budgetService.getBudgets().subscribe(budgets => { 
-            this.budgets = budgets;
+
+        this.budgetService.getBudgets().subscribe(budget => { 
+            this.budgetGroups = budget.budgetGroups;
         });
     }
 
