@@ -26,5 +26,4 @@ Plan to document this, but followed this youtube vid, to set up postgres, SqlAlc
 
 
 ## TODO:
-- finish up initial db layer implementation.
-- organize a bit better for future development
+- set up server-side and ui unit tests
