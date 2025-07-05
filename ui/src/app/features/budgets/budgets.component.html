@@ -1,0 +1,24 @@
+<div class="budget-group-card-container">
+<p-card class="budget-group-card" *ngFor="let budgetGroup of budgetGroups">
+    <p-table [value]="budgetGroup.budgetItems">
+        <ng-template #header>
+            <tr>
+                <th class="budget-group-card-name">{{ budgetGroup.name }} 
+                <p-button [icon]="budgetGroup.shouldShowRows ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"  (onClick)="budgetGroup.shouldShowRows = !budgetGroup.shouldShowRows"></p-button></th>
+                <th class="budget-group-card-header">Planned</th>
+                <th class="budget-group-card-header">Remaining</th>
+            </tr>
+        </ng-template>
+        <ng-template *ngIf="budgetGroup.shouldShowRows" #body let-budgetItem>
+            <tr>
+                <td>{{ budgetItem.name }}</td>
+                <td><input pInputText [(ngModel)]="budgetItem.allocatedAmount" /></td>
+                <td>0.00</td>
+            </tr>
+        </ng-template>
+        <ng-template #footer> 
+            <p-button label="Add Item" variant="text" />
+        </ng-template>
+    </p-table>
+    </p-card>
+</div>
