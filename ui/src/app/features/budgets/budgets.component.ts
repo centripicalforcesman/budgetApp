@@ -19,22 +19,24 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class BudgetsComponent implements OnInit {
+    private year: number
+    private month: number
     budgetGroups!: BudgetGroup[];
 
     constructor(
       private budgetService: BudgetService,
       private route: ActivatedRoute) {
 
-        const year = this.route.snapshot.paramMap.get('year');
-        const month = this.route.snapshot.paramMap.get('month');
-        console.log(`year: ${year}`);
-        console.log(`month: ${month}`);
+        this.year = Number(this.route.snapshot.paramMap.get('year'));
+        this.month = Number(this.route.snapshot.paramMap.get('month'));
+        console.log(`year: ${this.year}`);
+        console.log(`month: ${this.month}`);
 
     }
 
     ngOnInit() {
 
-        this.budgetService.getBudgets().subscribe(budget => { 
+        this.budgetService.getBudgetsByYearMonth(this.year, this.month).subscribe(budget => { 
             this.budgetGroups = budget.budgetGroups;
             this.budgetGroups.forEach(bg => bg.shouldShowRows = true);
         });

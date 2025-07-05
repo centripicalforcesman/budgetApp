@@ -10,5 +10,9 @@ class budgetRepo:
     def get_by_id(self,id):
         budget = self.session.query(Budget).get(id)
         return budget_data_to_budget_domain(budget)
+    
+    def get_by_year_month(self, year, month):
+        budget = self.session.query(Budget).filter(Budget.year == year, Budget.month == month).one()
+        return budget_data_to_budget_domain(budget)
         
 

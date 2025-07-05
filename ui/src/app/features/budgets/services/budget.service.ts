@@ -7,7 +7,7 @@ import { Budget } from 'src/app/shared/models/budget';
   providedIn: 'root' // or provide in feature module if scoped
 })
 export class BudgetService {
-  private apiUrl = 'http://127.0.0.1:5000/budgets/1';
+  private apiUrl = 'http://127.0.0.1:5000/budgets';
 
   constructor(private http: HttpClient) {}
 
@@ -15,8 +15,16 @@ export class BudgetService {
     // this.http.get<string>(this.apiUrl).subscribe(budgets => { 
     //   console.log(budgets)
     // });
+    //just hardcoded for now.  Will change
+    return this.http.get<Budget>(`${this.apiUrl}/1`);
+  }
 
-    return this.http.get<Budget>(this.apiUrl);
+  getBudgetsByYearMonth(year: number, month: number): Observable<Budget> {
+    // this.http.get<string>(this.apiUrl).subscribe(budgets => { 
+    //   console.log(budgets)
+    // });
+
+    return this.http.get<Budget>(`${this.apiUrl}/${year}/${month}`);
   }
 
   addBudget(budget: Budget): Observable<Budget> {

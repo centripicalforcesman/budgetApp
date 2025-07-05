@@ -9,8 +9,8 @@ engine  = create_engine(
     echo=True)
 
 Base.metadata.create_all(engine)
-class GetBudget: 
-    def Execute(self, id):
+class GetBudgetByYearMonth: 
+    def Execute(self, year, month):
         with Session(engine) as session:
             repo = budgetRepo(session, [])
-            return repo.get_by_id(id).serialize()
+            return repo.get_by_year_month(year, month).serialize()
